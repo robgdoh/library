@@ -15,6 +15,6 @@ app.use(express.urlencoded({extended:true}));
 // Handle author-management requests
 // the author routes are added onto the end of '/author-management'
 app.use('/author-management', authorRouter);
-app.listen(3000, () => {
-    console.log('The library app is listening on port 3000!')
+app.listen(process.env.PORT || 3000, () => {
+    console.log("The library app is running!");
 });
