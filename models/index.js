@@ -8,7 +8,7 @@ mongoose.connect(MONGO_URL || "mongodb://localhost/info30005", {
     useCreateIndex: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    dbName: "mylibraryapp"
+    dbName: "library"
 });
 const db = mongoose.connection;
 db.on("error", err => {
