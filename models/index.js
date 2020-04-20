@@ -18,4 +18,5 @@ db.on("error", err => {
 db.once("open", async () => {
     console.log("Mongo connection started on " + db.host + ":" + db.port);
 });
+
 require('./author');
