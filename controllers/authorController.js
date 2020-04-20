@@ -32,7 +32,7 @@ const addAuthor = async (req, res) => {
 
   newAuthor.save(function (err, author) {
     if (err) return console.error(err);
-    console.log(author.name + " saved to author collection.");
+    console.log(author.id + " saved to author collection.");
   });
 
   res.send("added " + newAuthor.name);
