@@ -30,8 +30,22 @@ const addAuthor = async (req, res) => {
 };
 
 // function to get author by id
-const getAuthorByID = (req, res) => {
-  res.send("Working on this feature");
+const getAuthorByID = async (req, res) => {
+
+  try {
+    const author = await Author.find(author => author.id === req.params.id);
+    if (author){
+      res.send(author); // send back the author details
+    }
+    else{
+
+      res.send([]);
+    }
+  } catch(err) {
+    res.status(400);
+    return res.send("Database query failed");
+  }
+
 };
 
 // remember to export the functions
