@@ -44,7 +44,7 @@ const getAuthorByID = async (req, res) => {
 
   try {
     const author = await Author.find(author => author.id === req.params.id);
-    if (author){
+    if (author) {
       res.send(author); // send back the author details
     }
     else{
