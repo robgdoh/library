@@ -32,16 +32,17 @@ const updateAuthor = async (req, res) => {
       author.first_name = req.body.first_name;
     }
 
+    author.save(function (err, author) {
+      if (err) return console.error(err);
+      console.log(author.id + " saved to author collection.");
+    });
 
   } catch (err) {
     res.status(400);
     return res.send("Database query failed");
   }
 
-  author.save(function (err, author) {
-    if (err) return console.error(err);
-    console.log(author.id + " saved to author collection.");
-  });
+
 
   res.send("added " + updateAuthor.id);
 
