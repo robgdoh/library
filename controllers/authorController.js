@@ -21,8 +21,32 @@ const getAllAuthors = async (req, res) => {
 
 // function to modify author by ID
 const updateAuthor = async (req, res) => {
-  res.send("Working on this feature");
+  try {
+
+    var author = Author.find(req.params.id);
+
+    if(req.body.first_name !== "") {
+      author.first_name = req.body.first_name;
+    }
+    if(req.body.last_name !== "") {
+      author.first_name = req.body.first_name;
+    }
+
+    author.save(function (err, author) {
+      if (err) return console.error(err);
+      console.log(author.id + " saved to author collection.");
+    });
+
+    res.send("added " + updateAuthor.id);
+  } catch (err) {
+    res.status(400);
+    return res.send("Database query failed");
+  }
+
 };
+
+
+
 
 // function to add author
 const addAuthor = async (req, res) => {
@@ -35,7 +59,7 @@ const addAuthor = async (req, res) => {
     console.log(author.id + " saved to author collection.");
   });
 
-  res.send("added " + newAuthor.name);
+  res.send("added " + newAuthor.id);
 
 };
 
