@@ -8,6 +8,6 @@ const authorController = require('../controllers/authorController.js');
 authorRouter.get('/', (req, res) => authorController.getAllAuthors(req, res));
 authorRouter.get('/:id', (req,res) => authorController.getAuthorByID(req,res));
 authorRouter.post('/new', (req,res) => authorController.addAuthor(req,res));
-authorRouter.post('/mod', (req,res) => authorController.modifyAuthor(req,res));
+authorRouter.post('/mod', (req,res) => authorController.updateAuthor(req,res));
 // export the router
 module.exports = authorRouter;
