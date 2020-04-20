@@ -43,7 +43,7 @@ const addAuthor = async (req, res) => {
 const getAuthorByID = async (req, res) => {
 
   try {
-    const author = await Author.find(author => author.id === req.params.id);
+    const author = await Author.find({id:req.params.id});
     if (author) {
       res.send(author); // send back the author details
     }
