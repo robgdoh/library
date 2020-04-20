@@ -26,7 +26,17 @@ const updateAuthor = async (req, res) => {
 
 // function to add author
 const addAuthor = async (req, res) => {
- res.send("Working on this feature");
+  var newAuthor = new Author({id: req.body.id,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name});
+
+  newAuthor.save(function (err, author) {
+    if (err) return console.error(err);
+    console.log(author.name + " saved to author collection.");
+  });
+
+  res.send("added " + newAuthor.name);
+
 };
 
 // function to get author by id
